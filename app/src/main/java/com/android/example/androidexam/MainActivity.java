@@ -27,6 +27,7 @@ import android.widget.SimpleAdapter;
 //import com.example.suwonsmartapp.androidexam.animation.TransitionDrawableExamActivity;
 
 import com.android.example.androidexam.layout.FrameLayout_Activity;
+import com.android.example.androidexam.mission.Mission01Activity;
 
 import java.text.Collator;
 import java.util.ArrayList;
@@ -57,6 +58,7 @@ public class MainActivity extends ListActivity {
 
         // 메뉴 추가 부분
         addItem(myData, "FrameLayout", FrameLayout_Activity.class);
+        addItem(myData, "미션01. 두개 화면에 이미지 교체하기", Mission01Activity.class);
         // ----- 메뉴 추가 여기까지
 
         // 이름 순 정렬
