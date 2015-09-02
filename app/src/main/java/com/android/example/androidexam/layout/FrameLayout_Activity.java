@@ -43,6 +43,5 @@ public class FrameLayout_Activity extends AppCompatActivity {
             mImageView2.setVisibility(View.INVISIBLE);
             mImageView1.setVisibility(View.VISIBLE);
         }
-
     }
 }
