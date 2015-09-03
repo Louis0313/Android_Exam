@@ -53,6 +53,7 @@ public class Mission01Activity extends AppCompatActivity implements View.OnClick
                 mImageView2.setImageBitmap(mBitmap);
                 mImageView1.setImageBitmap(null);
                 break;
+
         }
     }
 }

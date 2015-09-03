@@ -6,4 +6,10 @@
     <string name="title_activity_frame_layout">FrameLayout</string>
     <string name="title_activity_frame_layout_">FrameLayout_Activity</string>
     <string name="title_activity_mission01">Mission01Activity</string>
+    <string name="title_activity_mission02">Mission02Activity</string>
+    <string name="title_activity_ativity__mission03">ativity_Mission03</string>
+    <string name="title_activity_activity_mission03">activity_mission03</string>
+    <string name="title_activity_activity__mission03">activity_Mission03</string>
+    <string name="title_activity_mission03">Mission03Activity</string>
+    <string name="title_activity_mission03_1">Mission03_1Activity</string>
 </resources>
