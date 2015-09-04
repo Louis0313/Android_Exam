@@ -1,8 +1,10 @@
 
 package com.android.example.androidexam.Activity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
@@ -27,7 +29,7 @@ public class ActivityExamActivity extends AppCompatActivity implements View.OnCl
 
         findViewById(R.id.btn1).setOnClickListener(this);
         findViewById(R.id.btn2).setOnClickListener(this);
-
+        findViewById(R.id.dialog_btn).setOnClickListener(this);
     }
 
     @Override
@@ -37,15 +39,35 @@ public class ActivityExamActivity extends AppCompatActivity implements View.OnCl
         switch (v.getId()) {
             case R.id.btn1:
                 btn1click();
-
                 break;
             case R.id.btn2:
                 // TargetActivity 로 이동
                 btn2click();
-
+                break;
+            case R.id.dialog_btn:
+                openDialog();
                 break;
         }
 
+    }
+
+    private void openDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(ActivityExamActivity.this);
+        builder.setTitle("타이틀");
+        builder.setMessage("메세지");
+        builder.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Toast.makeText(ActivityExamActivity.this, "확인 눌렸음", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        builder.setNegativeButton("닫기", null);
+
+        builder.setIcon(R.mipmap.ic_launcher);
+
+        builder.create(); // AlertDialog 를 최종 생성
+        builder.show(); // 화면에 표시
     }
 
     private void btn1click() {
@@ -67,16 +89,15 @@ public class ActivityExamActivity extends AppCompatActivity implements View.OnCl
         intent.putExtra("name", mNameEditText.getText().toString());
         intent.putExtra("phone", mPhoneEditText.getText().toString());
 
-
-        //==========주는 곳===========
+        // ==========주는 곳===========
         //
         // 데이터를 돌려 받기 위해서는 StartActivityForResult 로 호출 해야 됨
         // 리퀘스트 코드는 원하는 값을 받기 위한 약속같은 것
         startActivityForResult(intent, REQUEST_CODE_STRING);
     }
 
-//   ==========받는 곳===========
-//
+    // ==========받는 곳===========
+    //
     // startActivity 로 호출 후에 데이터를 리턴 받는 곳
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {

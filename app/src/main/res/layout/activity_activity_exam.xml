@@ -37,6 +37,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="호출 한 Activity가 종료 될 때 리턴값 받기" />
+    <Button
+        android:id="@+id/dialog_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="다이얼로그" />
 
 
 
