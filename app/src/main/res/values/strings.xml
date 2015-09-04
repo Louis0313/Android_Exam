@@ -12,4 +12,6 @@
     <string name="title_activity_activity__mission03">activity_Mission03</string>
     <string name="title_activity_mission03">Mission03Activity</string>
     <string name="title_activity_mission03_1">Mission03_1Activity</string>
+    <string name="title_activity_activity_exam">ActivityExamActivity</string>
+    <string name="title_activity_target">TargetActivity</string>
 </resources>

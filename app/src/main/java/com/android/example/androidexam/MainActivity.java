@@ -24,8 +24,7 @@ import android.view.View;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
-//import com.example.suwonsmartapp.androidexam.animation.TransitionDrawableExamActivity;
-
+import com.android.example.androidexam.Activity.ActivityExamActivity;
 import com.android.example.androidexam.layout.FrameLayout_Activity;
 import com.android.example.androidexam.mission.Mission01Activity;
 import com.android.example.androidexam.mission.Mission02Activity;
@@ -37,6 +36,8 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+//import com.example.suwonsmartapp.androidexam.animation.TransitionDrawableExamActivity;
 
 public class MainActivity extends ListActivity {
 
@@ -61,6 +62,8 @@ public class MainActivity extends ListActivity {
         addItem(myData, "FrameLayout", FrameLayout_Activity.class);
         addItem(myData, "미션01. 두개 화면에 이미지 교체하기", Mission01Activity.class);
         addItem(myData, "미션02. 문자 보내기 (byte 구하기 , 전송 Toast, 닫기 finish", Mission02Activity.class);
+        addItem(myData, "화면이동 예제", ActivityExamActivity.class);
+
         // ----- 메뉴 추가 여기까지
 
         // 이름 순 정렬
