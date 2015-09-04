@@ -86,7 +86,7 @@ public class ActivityExamActivity extends AppCompatActivity implements View.OnCl
         if (resultCode == RESULT_OK) {
             // RequestCode 에 따라 처리를 나눈다.
             if (requestCode == REQUEST_CODE_STRING) {
-                if (data == null) {
+                if (data != null) {
                     String result = data.getStringExtra("result");
                     Toast.makeText(ActivityExamActivity.this, "result : " + result,
                             Toast.LENGTH_SHORT).show();
