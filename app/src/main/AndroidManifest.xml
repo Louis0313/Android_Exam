@@ -29,18 +29,6 @@
             android:label="@string/title_activity_mission02" >
         </activity>
         <activity
-            android:name=".ativity_Mission03"
-            android:label="@string/title_activity_ativity__mission03" >
-        </activity>
-        <activity
-            android:name=".activity_mission03"
-            android:label="@string/title_activity_activity_mission03" >
-        </activity>
-        <activity
-            android:name=".mission.activity_Mission03"
-            android:label="@string/title_activity_activity__mission03" >
-        </activity>
-        <activity
             android:name=".mission.Mission03Activity"
             android:label="@string/title_activity_mission03" >
         </activity>
