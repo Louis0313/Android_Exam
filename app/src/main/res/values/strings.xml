@@ -18,4 +18,5 @@
     <string name="title_activity_mission05">Mission05Activity</string>
     <string name="title_activity_mission07">Mission07Activity</string>
     <string name="title_activity_celendarctivity">Celendarctivity</string>
+    <string name="title_activity_calendar">CalendarActivity</string>
 </resources>

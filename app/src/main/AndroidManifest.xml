@@ -43,8 +43,8 @@
             android:label="@string/title_activity_mission05" >
         </activity>
         <activity
-            android:name=".calendar.Celendarctivity"
-            android:label="@string/title_activity_celendarctivity" >
+            android:name=".calendar.CalendarActivity"
+            android:label="@string/title_activity_calendar" >
         </activity>
     </application>
 

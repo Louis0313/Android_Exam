@@ -7,18 +7,18 @@ import android.view.MenuItem;
 
 import com.android.example.androidexam.R;
 
-public class Celendarctivity extends AppCompatActivity {
+public class CalendarActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_celendarctivity);
+        setContentView(R.layout.activity_calendar);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_celendarctivity, menu);
+        getMenuInflater().inflate(R.menu.menu_calendar, menu);
         return true;
     }
 
