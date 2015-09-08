@@ -25,6 +25,7 @@ import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
 import com.android.example.androidexam.Activity.ActivityExamActivity;
+import com.android.example.androidexam.calendar.CalendarActivity;
 import com.android.example.androidexam.layout.FrameLayout_Activity;
 import com.android.example.androidexam.mission.Mission01Activity;
 import com.android.example.androidexam.mission.Mission02Activity;
@@ -63,6 +64,7 @@ public class MainActivity extends ListActivity {
         addItem(myData, "미션01. 두개 화면에 이미지 교체하기", Mission01Activity.class);
         addItem(myData, "미션02. 문자 보내기 (byte 구하기 , 전송 Toast, 닫기 finish", Mission02Activity.class);
         addItem(myData, "화면이동 예제", ActivityExamActivity.class);
+        addItem(myData, "Calender", CalendarActivity.class);
 
         // ----- 메뉴 추가 여기까지
 

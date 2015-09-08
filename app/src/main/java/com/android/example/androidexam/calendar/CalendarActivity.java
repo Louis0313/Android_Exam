@@ -1,39 +1,62 @@
+
 package com.android.example.androidexam.calendar;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.TextView;
 
 import com.android.example.androidexam.R;
 
-public class CalendarActivity extends AppCompatActivity {
+import java.util.Calendar;
+
+public class CalendarActivity extends AppCompatActivity implements View.OnClickListener {
+
+    private CalendarAdapter mCalendarAdapter;
+    private CalendarView mCalendarView;
+
+    private TextView mTitleTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calendar);
+
+        mTitleTextView = (TextView) findViewById(R.id.tv_title);
+
+        // 버튼 이벤트 연결
+        findViewById(R.id.btn_prev_month).setOnClickListener(this);
+        findViewById(R.id.btn_next_month).setOnClickListener(this);
+
+        // 어댑터 준비
+        mCalendarAdapter = new CalendarAdapter(this);
+
+        // View 에 어댑터를 설정
+        mCalendarView = (CalendarView) findViewById(R.id.calendar);
+        mCalendarView.setAdapter(mCalendarAdapter);
+
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_calendar, menu);
-        return true;
-    }
+    public void onClick(View v) {
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+        switch (v.getId()) {
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+            case R.id.btn_prev_month:
+                mCalendarAdapter.prevMonth();
+                break;
+            case R.id.btn_next_month:
+                mCalendarAdapter.nextMonth();
+                break;
+
         }
+        updateTitle();
 
-        return super.onOptionsItemSelected(item);
+    }
+
+    private void updateTitle() {
+        int year = mCalendarAdapter.getCalender().get(Calendar.YEAR);
+        int month = mCalendarAdapter.getCalender().get(Calendar.MONTH) + 1;
+        mTitleTextView.setText(year + "년" + month + "월");
     }
 }

@@ -2,6 +2,7 @@
 package com.android.example.androidexam.calendar;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,7 +11,9 @@ import android.widget.TextView;
 
 import com.android.example.androidexam.R;
 
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 /**
@@ -19,11 +22,61 @@ import java.util.List;
 public class CalendarAdapter extends BaseAdapter {
     private List<Calendar> mList;
     private Context mContext;
+    private final Calendar mCalendar;
 
-    public CalendarAdapter(Context context, List<Calendar> list) {
+    public CalendarAdapter(Context context) {
         mContext = context;
-        mList = list;
 
+        // 오늘
+        mCalendar = Calendar.getInstance();
+        createCalendar(mCalendar);
+
+    }
+
+    private void createCalendar(Calendar calendar) {
+        mList = new ArrayList<>();
+
+        int year = calendar.get(Calendar.YEAR);
+        int month = calendar.get(Calendar.MONTH) + 1;
+
+        // 마지막 날
+        int lastDay = calendar.getActualMaximum(Calendar.DAY_OF_MONTH);
+
+        // 이달의 첫 번째 날
+        calendar.set(Calendar.DAY_OF_MONTH, 1);
+        int firstDay = calendar.get(Calendar.DAY_OF_WEEK);
+
+        // 공백
+        for (int i = 1; i < firstDay; i++) {
+            mList.add(null);
+        }
+        // 이번 달 달력 데이터
+        for (int i = 1; i < lastDay; i++) {
+            mList.add(new GregorianCalendar(year, month, i));
+        }
+
+    }
+
+    public void prevMonth() {
+        changeMonth(-1);
+    }
+
+    public void nextMonth() {
+        changeMonth(1);
+
+    }
+
+    public Calendar getCalender() {
+        return mCalendar;
+    }
+
+    private void changeMonth(int month) {
+        // 다음 달로 설정
+        mCalendar.add(Calendar.MONTH, month);
+        createCalendar(mCalendar);
+
+        // 어댑터에 바뀐 데이터를 반영하도록 알려줌
+        notifyDataSetChanged();
     }
 
     @Override
@@ -52,7 +105,8 @@ public class CalendarAdapter extends BaseAdapter {
             holder = new ViewHolder();
 
             // 처음 로드
-            convertView = LayoutInflater.from(mContext).inflate(R.layout.item_calendar, parent);
+            convertView = LayoutInflater.from(mContext).inflate(R.layout.item_calendar, parent,
+                    false);
 
             holder.dateTextView = (TextView) convertView.findViewById(R.id.tv_date);
 
@@ -64,7 +118,18 @@ public class CalendarAdapter extends BaseAdapter {
 
         // Data 를 Layout에 설정
         Calendar calendar = mList.get(position);
-        holder.dateTextView.setText(calendar.get(Calendar.DATE));
+        if (calendar != null) {
+            holder.dateTextView.setText("" + calendar.get(Calendar.DATE));
+
+            if (position % 7 == 0) {
+                holder.dateTextView.setTextColor(Color.RED);
+
+            } else if (position 6 == 0) {
+                holder.dateTextView.setTextColor(Color.B);
+            }
+        } else {
+            holder.dateTextView.setText("");
+        }
 
         return convertView;
     }
