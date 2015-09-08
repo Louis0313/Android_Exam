@@ -28,7 +28,7 @@ public class CelendarView extends GridView {
     }
 
     private void init(){
-        setNumColumns(7);
+        setNumColumns(7); // 7일로 설정
         setBackgroundResource(android.R.color.darker_gray); // 배경 회색
     }
 
