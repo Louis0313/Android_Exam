@@ -12,5 +12,4 @@ public class Mission05Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mission05);
     }
-
 }

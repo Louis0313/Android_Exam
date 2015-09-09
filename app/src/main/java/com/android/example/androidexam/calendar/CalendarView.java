@@ -31,6 +31,9 @@ public class CalendarView extends GridView {
         setBackgroundResource(android.R.color.darker_gray); // 배경 회색
         setHorizontalSpacing(1);
         setVerticalSpacing(1);
+
     }
+
+
 
 }
