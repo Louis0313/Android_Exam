@@ -68,7 +68,6 @@ public class CalendarActivity extends AppCompatActivity implements View.OnClickL
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         mCalendarAdapter.setSelectedPosition(position);
-        // 다시 그려주세요
         mCalendarAdapter.notifyDataSetChanged();
     }
 }
