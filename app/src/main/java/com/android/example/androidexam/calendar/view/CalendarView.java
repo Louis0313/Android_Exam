@@ -40,7 +40,6 @@ public class CalendarView extends GridView implements AdapterView.OnItemClickLis
         setOnItemClickListener(this);
     }
 
-
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         if (getAdapter() != null) {
@@ -54,4 +53,5 @@ public class CalendarView extends GridView implements AdapterView.OnItemClickLis
             }
         }
     }
+
 }

@@ -49,4 +49,13 @@ public class Schedule {
     public void setContents(String contents) {
         this.contents = contents;
     }
+
+
+    // toString 재정의
+    @Override
+    public String toString() {
+        return hour + ":" + minute + " " + contents;
+
+
+    }
 }

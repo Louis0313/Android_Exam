@@ -1,3 +1,4 @@
+
 package com.android.example.androidexam.calendar.adapter;
 
 import android.content.Context;
@@ -19,11 +20,10 @@ public class TodoAdapter extends BaseAdapter {
     private List<Schedule> mList;
     private Context mContext;
 
-    public TodoAdapter(Context context, List<Schedule>data) {
+    public TodoAdapter(Context context, List<Schedule> data) {
         mContext = context;
         mList = data;
     }
-
 
     @Override
     public int getCount() {
@@ -64,8 +64,7 @@ public class TodoAdapter extends BaseAdapter {
 
         // Data 를 Layout에 설정
         Schedule schedule = mList.get(position);
-        String todoText = schedule.getHour() + ":" + schedule.getMinute() + " " + schedule.getContents();
-        holder.todoTextView.setText(todoText);
+        holder.todoTextView.setText(schedule.toString());
 
         return convertView;
     }

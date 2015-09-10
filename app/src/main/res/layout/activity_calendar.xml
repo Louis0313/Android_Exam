@@ -38,10 +38,10 @@
     <com.android.example.androidexam.calendar.view.CalendarView
         android:id="@+id/calendar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"></com.android.example.androidexam.calendar.view.CalendarView>
+        android:layout_height="wrap_content"></com.android.example.androidexam.calendar.view.CalendarView>
 
     <ListView
-        android:id="@+id/lvTt0dt"
-        android:layout_width="wrap_content"
+        android:id="@+id/lv_Todo"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"></ListView>
 </LinearLayout>
