@@ -1,5 +1,5 @@
 
-package com.android.example.androidexam.calendar;
+package com.android.example.androidexam.calendar.adapter;
 
 import android.content.Context;
 import android.graphics.Color;

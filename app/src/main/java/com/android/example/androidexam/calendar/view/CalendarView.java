@@ -1,11 +1,13 @@
 
-package com.android.example.androidexam.calendar;
+package com.android.example.androidexam.calendar.view;
 
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
+
+import com.android.example.androidexam.calendar.adapter.CalendarAdapter;
 
 /**
  * Created by ws on 2015-09-08.

@@ -1,13 +1,17 @@
 
 package com.android.example.androidexam.calendar;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.TextView;
 
 import com.android.example.androidexam.R;
+import com.android.example.androidexam.calendar.adapter.CalendarAdapter;
+import com.android.example.androidexam.calendar.view.CalendarView;
 
 import java.util.Calendar;
 
@@ -37,7 +41,7 @@ public class CalendarActivity extends AppCompatActivity implements View.OnClickL
         mCalendarView = (CalendarView) findViewById(R.id.calendar);
         mCalendarView.setAdapter(mCalendarAdapter);
 
-        // 이벤트 리스너 연결
+        // 아이템 클릭 이벤트 연결
         mCalendarView.setOnItemClickListener(this);
 
     }
@@ -67,7 +71,18 @@ public class CalendarActivity extends AppCompatActivity implements View.OnClickL
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        mCalendarAdapter.setSelectedPosition(position);
-        mCalendarAdapter.notifyDataSetChanged();
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setNegativeButton("닫기", null);
+        builder.setPositiveButton("저장", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // 뭔가 합니다
+            }
+        });
+        View layout = getLayoutInflater().inflate(R.layout.dialog_schedule, null);
+        // View layout =
+        // LayoutInflator.form(this).inflate(R.layout.dialog_schedule, null);
+        builder.setView(layout);
+        builder.show();
     }
 }
