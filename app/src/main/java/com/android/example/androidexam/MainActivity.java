@@ -31,6 +31,7 @@ import com.android.example.androidexam.calendar2.Calendar2Activity;
 import com.android.example.androidexam.layout.FrameLayout_Activity;
 import com.android.example.androidexam.mission.Mission01Activity;
 import com.android.example.androidexam.mission.Mission02Activity;
+import com.android.example.androidexam.thread.ThreadActivity;
 
 import java.text.Collator;
 import java.util.ArrayList;
@@ -69,6 +70,7 @@ public class MainActivity extends ListActivity {
         addItem(myData, "달력 만들기", CalendarActivity.class);
         addItem(myData, "달력(Android 내장)", Calendar2Activity.class);
         addItem(myData, "ListViewExam", ExamActivity.class);
+        addItem(myData, "Thread", ThreadActivity.class);
 
         // ----- 메뉴 추가 여기까지
 
