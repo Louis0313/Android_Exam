@@ -30,6 +30,8 @@ public class ThreadActivity extends AppCompatActivity implements View.OnClickLis
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        Log.d(TAG, "onCreate");
+
         setContentView(R.layout.activity_thread);
 
         mThread1btn = (Button) findViewById(R.id.btn_thread1);
@@ -44,6 +46,8 @@ public class ThreadActivity extends AppCompatActivity implements View.OnClickLis
         mThread2btn.setOnClickListener(this);
     }
 
+    private DownloadTask mDownloadTask;
+
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -55,11 +59,15 @@ public class ThreadActivity extends AppCompatActivity implements View.OnClickLis
 
                 // 완료 되었습니다.
 
-
-
                 break;
             case R.id.btn_thread2:
-                new DownloadTask().execute();
+
+                if (mDownloadTask == null || mDownloadTask.getStatus() == AsyncTask.Status.FINISHED) {
+                    // 실행 할 때 마다 인스턴스 생성
+                    mDownloadTask = new DownloadTask();
+                    mDownloadTask.execute();
+
+                }
                 break;
         }
 
@@ -104,8 +112,8 @@ public class ThreadActivity extends AppCompatActivity implements View.OnClickLis
                         // 스레드가 쉬는 동안에 에러가 나면 여기서 에러 처리 위치
 
                     }
-                    Log.d(TAG, "" + i);                 // bckggound
-                    mNumberTextView1.setText("" + i);   // foregound
+                    Log.d(TAG, "" + i); // bckggound
+                    mNumberTextView1.setText("" + i); // foregound
                 }
             }
         });
@@ -174,10 +182,8 @@ public class ThreadActivity extends AppCompatActivity implements View.OnClickLis
         thread.start();
     }
 
-
-    private class DownloadTask extends AsyncTask<Void, Integer, Void>{
+    private class DownloadTask extends AsyncTask<Void, Integer, Void> {
         private AlertDialog.Builder mmBuilder;
-
 
         // UI Thread
         // doInBackground 전에 호출 됨
@@ -194,13 +200,13 @@ public class ThreadActivity extends AppCompatActivity implements View.OnClickLis
 
         // Background Thread
         @Override
-           protected Void doInBackground(Void... params) {
+        protected Void doInBackground(Void... params) {
             // 다운로드 처리
-            for (int i = 0; i <100; i++){
+            for (int i = 0; i < 100; i++) {
                 // 0.2 초 쉬고
-                try{
+                try {
                     Thread.sleep(20);
-                }catch (InterruptedException e){
+                } catch (InterruptedException e) {
                     Log.d(TAG, e.getMessage());
                 }
                 // onProgressUpdate 를 호출
@@ -230,5 +236,63 @@ public class ThreadActivity extends AppCompatActivity implements View.OnClickLis
 
             mmBuilder.show();
         }
+
+        @Override
+        protected void onCancelled() {
+            super.onCancelled();
+
+            Log.i(TAG, "Task is cancelled - 1");
+        }
+
+        @Override
+        protected void onCancelled(Void aVoid) {
+            super.onCancelled(aVoid);
+
+            Log.i(TAG, "Task is cancelled - 2");
+        }
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+
+        Log.d(TAG, "onStop ");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        Log.d(TAG, "onDestroy ");
+
+        mDownloadTask.cancel(true);
+        mDownloadTask = null;
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        Log.d(TAG, "onRestart ");
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        Log.d(TAG, "onStart ");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+        Log.d(TAG, "onPause ");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        Log.d(TAG, "onResume");
     }
 }
