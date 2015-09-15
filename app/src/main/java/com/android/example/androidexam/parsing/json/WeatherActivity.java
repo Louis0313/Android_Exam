@@ -65,7 +65,7 @@ public class WeatherActivity extends Activity implements View.OnKeyListener {
         return false;
     }
 
-    class WeatherInfoLoadTask extends AsyncTask<String, Void, Void>{
+    class WeatherInfoLoadTask extends AsyncTask<String, Void, List>{
 
         @Override
         protected void onPreExecute() {
@@ -76,9 +76,10 @@ public class WeatherActivity extends Activity implements View.OnKeyListener {
         }
 
         @Override
-        protected Void doInBackground(String... params) {
+        protected List doInBackground(String... params) {
             String query = params[0];
 
+            List<Weather> weatherList = null;
             try {
                 // HTTP 에서 내용을 String 으로 받아 온다
                 String jsonString = NetworkUtil.getReturnString(NetworkUtil.getUrlConnection(URL_FORECAST + query));
@@ -88,7 +89,7 @@ public class WeatherActivity extends Activity implements View.OnKeyListener {
                 JSONArray jsonArray = jsonObject.getJSONArray("list");
 
                 // 날씨 정보 저장할 리스트
-                List<Weather> weatherList = new ArrayList<>();
+               weatherList = new ArrayList<>();
 
                 for (int i = 0; i < jsonArray.length(); i++) {
                     JSONObject object = jsonArray.getJSONObject(i);
@@ -102,20 +103,18 @@ public class WeatherActivity extends Activity implements View.OnKeyListener {
                     weatherList.add(new Weather(time, temp, description));
                 }
 
-                mAdapter = new WeatherAdapter(WeatherActivity.this, weatherList);
 
 
             } catch (Exception e) {
                 Log.e(TAG, e.getMessage());
             }
 
-            return null;
+            return weatherList;
         }
 
         @Override
-        protected void onPostExecute(Void aVoid) {
-            super.onPostExecute(aVoid);
-
+        protected void onPostExecute(List list) { // 세번째 인자
+            mAdapter = new WeatherAdapter(WeatherActivity.this, list);
             mWeatherListView.setAdapter(mAdapter);
             mProgressBar.setVisibility(View.GONE);
 

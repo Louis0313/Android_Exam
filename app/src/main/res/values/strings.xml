@@ -23,4 +23,5 @@
     <string name="title_activity_exatra01">ExatraActivity01</string>
     <string name="title_activity_extra">ExtraActivity</string>
     <string name="title_activity_thread">ThreadActivity</string>
+    <string name="title_activity_fragment">fragmentActivity</string>
 </resources>

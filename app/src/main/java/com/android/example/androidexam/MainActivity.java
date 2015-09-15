@@ -28,6 +28,7 @@ import com.android.example.androidexam.Activity.ActivityExamActivity;
 import com.android.example.androidexam.Exam.ExamActivity;
 import com.android.example.androidexam.calendar.CalendarActivity;
 import com.android.example.androidexam.calendar2.Calendar2Activity;
+import com.android.example.androidexam.fragment.FragmentActivity;
 import com.android.example.androidexam.layout.FrameLayout_Activity;
 import com.android.example.androidexam.mission.Mission01Activity;
 import com.android.example.androidexam.mission.Mission02Activity;
@@ -72,7 +73,8 @@ public class MainActivity extends ListActivity {
         addItem(myData, "달력(Android 내장)", Calendar2Activity.class);
         addItem(myData, "ListViewExam", ExamActivity.class);
         addItem(myData, "Thread", ThreadActivity.class);
-        addItem(myData, "Weather", WeatherActivity.class);
+        addItem(myData, "JSON 파싱 - 날씨정보", WeatherActivity.class);
+        addItem(myData, "Fragment", FragmentActivity.class);
 
         // ----- 메뉴 추가 여기까지
 
