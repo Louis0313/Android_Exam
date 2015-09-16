@@ -34,6 +34,7 @@ import com.android.example.androidexam.mission.Mission01Activity;
 import com.android.example.androidexam.mission.Mission02Activity;
 import com.android.example.androidexam.parsing.json.WeatherActivity;
 import com.android.example.androidexam.thread.ThreadActivity;
+import com.android.example.androidexam.viewpager.ScreenSlideActivity;
 
 import java.text.Collator;
 import java.util.ArrayList;
@@ -75,6 +76,7 @@ public class MainActivity extends ListActivity {
         addItem(myData, "Thread", ThreadActivity.class);
         addItem(myData, "JSON 파싱 - 날씨정보", WeatherActivity.class);
         addItem(myData, "Fragment", FragmentActivity.class);
+        addItem(myData, "ViewPager", ScreenSlideActivity.class);
 
         // ----- 메뉴 추가 여기까지
 

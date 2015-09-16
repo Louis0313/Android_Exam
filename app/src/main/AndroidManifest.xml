@@ -53,9 +53,14 @@
         <activity android:name=".Exam.ExamActivity" />
         <activity
             android:name=".thread.ThreadActivity"
-            android:label="@string/title_activity_thread" />
-        <activity android:name=".parsing.json.WeatherActivity" />
-        <activity android:name=".fragment.FragmentActivity"></activity>
+            android:label="@string/title_activity_thread">
+        </activity>
+        <activity android:name=".parsing.json.WeatherActivity">
+        </activity>
+        <activity android:name=".fragment.FragmentActivity">
+        </activity>
+        <activity android:name=".viewpager.ScreenSlideActivity">
+        </activity>
     </application>
 
 </manifest>
