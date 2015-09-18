@@ -28,11 +28,13 @@ import com.android.example.androidexam.Activity.ActivityExamActivity;
 import com.android.example.androidexam.Exam.ExamActivity;
 import com.android.example.androidexam.calendar.CalendarActivity;
 import com.android.example.androidexam.calendar2.Calendar2Activity;
+import com.android.example.androidexam.database.LoginActivity;
 import com.android.example.androidexam.fragment.FragmentActivity;
 import com.android.example.androidexam.layout.FrameLayout_Activity;
 import com.android.example.androidexam.mission.Mission01Activity;
 import com.android.example.androidexam.mission.Mission02Activity;
 import com.android.example.androidexam.parsing.json.WeatherActivity;
+import com.android.example.androidexam.receiver.BroadcastActivity;
 import com.android.example.androidexam.thread.ThreadActivity;
 import com.android.example.androidexam.viewpager.ScreenSlideActivity;
 
@@ -77,6 +79,8 @@ public class MainActivity extends ListActivity {
         addItem(myData, "JSON 파싱 - 날씨정보", WeatherActivity.class);
         addItem(myData, "Fragment", FragmentActivity.class);
         addItem(myData, "ViewPager", ScreenSlideActivity.class);
+        addItem(myData, "BroadcastReceiver", BroadcastActivity.class);
+        addItem(myData, "Login", LoginActivity.class);
 
         // ----- 메뉴 추가 여기까지
 
