@@ -2,14 +2,12 @@
 package com.android.example.androidexam.database;
 
 import android.content.Intent;
-import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Toast;
 
 import com.android.example.androidexam.R;
-import com.android.example.androidexam.database.contract.UserContract;
 import com.android.example.androidexam.database.helper.UserDbHelper;
 
 /**
@@ -42,18 +40,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 // long insertedId = mUserDbHelper.insert("test", "test",
                 // "test");
 
-                Cursor cursor = mUserDbHelper.query();
-                if (cursor != null) {
-                    cursor.moveToFirst();
-                    while (cursor.moveToNext()) {
-                        long itemId = cursor.getLong(cursor
-                                .getColumnIndex(UserContract.UserEntry._ID));
-                        Toast.makeText(LoginActivity.this, "성공", Toast.LENGTH_SHORT).show();
-                    }
 
-                } else {
-                    Toast.makeText(LoginActivity.this, "실패", Toast.LENGTH_SHORT).show();
+                int count = mUserDbHelper.update("test", "테스트");
+                if (count != 0){
+                    Toast.makeText(LoginActivity.this, "Update 성공 : " + count, Toast.LENGTH_SHORT).show();
                 }
+
                 break;
 
         }
