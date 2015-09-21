@@ -92,14 +92,27 @@ public class UserDbHelper extends SQLiteOpenHelper {
         // Email 이 ? 와 같다면
         String selection = UserContract.UserEntry.COLUMN_NAME_EMAIL + " = ?";
         String[] selectionArgs = {
-            String.valueOf(Email)
+                email
         };
 
         int count = db.update(
-                FeedReaderDbHelper.FeedEntry.TABLE_NAME,
+                UserContract.UserEntry.TABLE_NAME,
                 values,
                 selection,
                 selectionArgs);
+        return count;
     }
 
+    public boolean delete(String email) {
+        SQLiteDatabase db = getWritableDatabase();
+        // db.execSQL("DELETE FROM User WHERE email = '" + email + "';");
+
+        // 지울 조건
+        String selection = UserContract.UserEntry.COLUMN_NAME_EMAIL + " = '" + email + "'";
+        // Issue SQL Statement
+        int deleted = db.delete(UserContract.UserEntry.TABLE_NAME,
+                selection,
+                null);
+        return deleted != 0;
+    }
 }
